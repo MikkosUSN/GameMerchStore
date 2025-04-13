@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.gamestore.main","l":"GameStoreApp"},{"p":"com.gamestore.model","l":"InventoryManager"},{"p":"com.gamestore.model","l":"SalableProduct"},{"p":"com.gamestore.model","l":"ShoppingCart"},{"p":"com.gamestore.model","l":"StoreFront"}];updateSearchResults();
