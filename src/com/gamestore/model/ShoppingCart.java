@@ -11,14 +11,16 @@ import java.util.List;
 /**
  * Represents a shopping cart for the store.
  */
-public class ShoppingCart {
+public class ShoppingCart 
+{
     private List<SalableProduct> items;
     private InventoryManager inventory;
     
     /**
      * Constructs a new ShoppingCart
      */
-    public ShoppingCart(InventoryManager inventory) {
+    public ShoppingCart(InventoryManager inventory) 
+    {
         this.items = new ArrayList<>();
         this.inventory = inventory;
     }
@@ -26,9 +28,11 @@ public class ShoppingCart {
     /**
      * Adds an item to the cart
      */
-    public void addItem(String productName, int quantity) {
+    public void addItem(String productName, int quantity) 
+    {
         SalableProduct inventoryProduct = inventory.getProduct(productName);
-        if (inventoryProduct != null && inventoryProduct.getQuantity() >= quantity) {
+        if (inventoryProduct != null && inventoryProduct.getQuantity() >= quantity) 
+        {
             // Create a new product for the cart
             SalableProduct cartProduct = new SalableProduct(
                 inventoryProduct.getName(),
@@ -47,16 +51,20 @@ public class ShoppingCart {
     /**
      * Removes an item from the cart
      */
-    public void removeItem(String productName) {
+    public void removeItem(String productName) 
+    {
         SalableProduct toRemove = null;
-        for (SalableProduct product : items) {
-            if (product.getName().equals(productName)) {
+        for (SalableProduct product : items) 
+        {
+            if (product.getName().equals(productName)) 
+            {
                 toRemove = product;
                 break;
             }
         }
         
-        if (toRemove != null) {
+        if (toRemove != null) 
+        {
             // Return quantity to inventory
             SalableProduct inventoryProduct = inventory.getProduct(productName);
             inventory.updateQuantity(productName, 
@@ -69,16 +77,19 @@ public class ShoppingCart {
     /**
      * Gets all items in the cart
      */
-    public List<SalableProduct> getItems() {
+    public List<SalableProduct> getItems() 
+    {
         return items;
     }
     
     /**
      * Calculates the total price of the cart
      */
-    public double getTotalPrice() {
+    public double getTotalPrice() 
+    {
         double total = 0.0;
-        for (SalableProduct product : items) {
+        for (SalableProduct product : items) 
+        {
             total += product.getPrice() * product.getQuantity();
         }
         return total;
@@ -87,14 +98,16 @@ public class ShoppingCart {
     /**
      * Clears the cart
      */
-    public void clearCart() {
+    public void clearCart() 
+    {
         items.clear();
     }
     
     /**
      * Gets the number of items in the cart
      */
-    public int getItemCount() {
+    public int getItemCount() 
+    {
         return items.size();
     }
 }

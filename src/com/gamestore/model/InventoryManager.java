@@ -11,36 +11,43 @@ import java.util.List;
 /**
  * Manages the inventory of products in the store.
  */
-public class InventoryManager {
+public class InventoryManager 
+{
     private List<SalableProduct> products;
     
     /**
      * Constructs a new InventoryManager
      */
-    public InventoryManager() {
+    public InventoryManager() 
+    {
         this.products = new ArrayList<>();
     }
     
     /**
      * Adds a product to the inventory
      */
-    public void addProduct(SalableProduct product) {
+    public void addProduct(SalableProduct product) 
+    {
         products.add(product);
     }
     
     /**
      * Gets all products in the inventory
      */
-    public List<SalableProduct> getAllProducts() {
+    public List<SalableProduct> getAllProducts() 
+    {
         return products;
     }
     
     /**
      * Gets a product by name
      */
-    public SalableProduct getProduct(String name) {
-        for (SalableProduct product : products) {
-            if (product.getName().equals(name)) {
+    public SalableProduct getProduct(String name) 
+    {
+        for (SalableProduct product : products) 
+        {
+            if (product.getName().equals(name)) 
+            {
                 return product;
             }
         }
@@ -50,9 +57,11 @@ public class InventoryManager {
     /**
      * Updates the quantity of a product
      */
-    public void updateQuantity(String name, int quantity) {
+    public void updateQuantity(String name, int quantity) 
+    {
         SalableProduct product = getProduct(name);
-        if (product != null) {
+        if (product != null) 
+        {
             product.setQuantity(quantity);
         }
     }
