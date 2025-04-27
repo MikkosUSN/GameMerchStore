@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/17/2025
-// This is my own work, with help using website: https://halo.gcu.edu/courses/CST-239-O500-20250407/announcements
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -17,13 +17,12 @@ public class Weapon extends SalableProduct
     /**
      * Default constructor
      */
-    public Weapon() 
-    {
+    public Weapon() {
         super();
     }
     
     /**
-     * Constructs a new Weapon with specified attributes 
+     * Constructs a new Weapon with specified attributes
      * @param name The name of the weapon
      * @param description The description of the weapon
      * @param price The price of the weapon
@@ -54,9 +53,12 @@ public class Weapon extends SalableProduct
         this.damage = damage;
     }
     
+    /**
+     * Returns a string representation of the weapon.
+     * @return A formatted string with weapon details
+     */
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return super.toString() + "\nDamage: " + damage;
     }
 }

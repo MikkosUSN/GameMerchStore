@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/17/2025
-// This is my own work
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -65,28 +65,32 @@ public class StoreFront
     
     /**
      * Adds a product to the shopping cart
+     * @param productName The name of the product to purchase
+     * @param quantity The quantity to purchase
      */
     public void purchaseProduct(String productName, int quantity) 
     {
         SalableProduct product = inventory.getProduct(productName);
-                
-        if (product == null) {
+        
+        if (product == null) 
+        {
             System.out.println("Product not found.");
             return;
         }
-                
+        
         if (product.getQuantity() < quantity) 
         {
             System.out.println("Not enough inventory.");
             return;
         }
-                
+        
         cart.addItem(productName, quantity);
         System.out.println(quantity + " x " + productName + " added to cart.");
     }
     
     /**
      * Removes a product from the shopping cart
+     * @param productName The name of the product to remove
      */
     public void cancelPurchase(String productName) 
     {
@@ -104,11 +108,12 @@ public class StoreFront
             System.out.println("Cart is empty.");
             return;
         }
-                
+        
         System.out.println("Items in cart:");
         for (SalableProduct product : cart.getItems()) 
         {
-            System.out.println(product.getName() + " x " + product.getQuantity() + " - $" + String.format("%.2f", product.getPrice() * product.getQuantity()));
+            System.out.println(product.getName() + " x " + product.getQuantity() + " - $" + 
+                String.format("%.2f", product.getPrice() * product.getQuantity()));
         }
         System.out.println("Total: $" + String.format("%.2f", cart.getTotalPrice()));
     }
@@ -123,7 +128,7 @@ public class StoreFront
             System.out.println("Cannot checkout with empty cart.");
             return;
         }
-                
+        
         System.out.println("Processing payment of $" + String.format("%.2f", cart.getTotalPrice()));
         cart.clearCart();
         System.out.println("Thank you for your purchase!");
@@ -131,6 +136,7 @@ public class StoreFront
     
     /**
      * Gets the inventory manager
+     * @return The inventory manager
      */
     public InventoryManager getInventory() 
     {
@@ -139,6 +145,7 @@ public class StoreFront
     
     /**
      * Gets the shopping cart
+     * @return The shopping cart
      */
     public ShoppingCart getCart() 
     {

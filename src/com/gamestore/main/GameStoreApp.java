@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/17/2025
-// This is my own work
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.main;
 
@@ -19,6 +19,7 @@ public class GameStoreApp
      * The main method that starts the application.
      * It initializes the store, displays a welcome message, and
      * presents a menu for user interaction.
+     * @param args Command line arguments (not used)
      */
     public static void main(String[] args) 
     {
@@ -30,10 +31,10 @@ public class GameStoreApp
         Scanner scanner = new Scanner(System.in);
         
         // Display welcome banner
-        System.out.println("*********************************************");
-        System.out.println("*   Welcome to " + store.getStoreName() + "!   *");
-        System.out.println("*   Gear up for your next mission, Agent!   *");
-        System.out.println("*********************************************");
+        System.out.println("");
+        System.out.println(" Welcome to " + store.getStoreName() + "! ");
+        System.out.println(" Gear up for your next mission, Agent! ");
+        System.out.println("");
         
         // Control variable for the main application loop
         boolean running = true;
@@ -152,7 +153,8 @@ public class GameStoreApp
         
         // Get and validate quantity
         System.out.print("Enter quantity: ");
-        try {
+        try 
+        {
             int qty = Integer.parseInt(scanner.nextLine());
             
             // Ensure quantity is positive

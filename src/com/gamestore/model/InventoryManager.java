@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/10/2025
-// This is my own work
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -25,6 +25,7 @@ public class InventoryManager
     
     /**
      * Adds a product to the inventory
+     * @param product The product to add to inventory
      */
     public void addProduct(SalableProduct product) 
     {
@@ -33,6 +34,7 @@ public class InventoryManager
     
     /**
      * Gets all products in the inventory
+     * @return A list of all products in inventory
      */
     public List<SalableProduct> getAllProducts() 
     {
@@ -41,6 +43,8 @@ public class InventoryManager
     
     /**
      * Gets a product by name
+     * @param name The name of the product to find
+     * @return The product if found, null otherwise
      */
     public SalableProduct getProduct(String name) 
     {
@@ -56,6 +60,8 @@ public class InventoryManager
     
     /**
      * Updates the quantity of a product
+     * @param name The name of the product to update
+     * @param quantity The new quantity to set
      */
     public void updateQuantity(String name, int quantity) 
     {

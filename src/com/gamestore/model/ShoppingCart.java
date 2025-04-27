@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/10/2025
-// This is my own work
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -18,6 +18,7 @@ public class ShoppingCart
     
     /**
      * Constructs a new ShoppingCart
+     * @param inventory The inventory manager to interact with
      */
     public ShoppingCart(InventoryManager inventory) 
     {
@@ -27,6 +28,8 @@ public class ShoppingCart
     
     /**
      * Adds an item to the cart
+     * @param productName The name of the product to add
+     * @param quantity The quantity to add
      */
     public void addItem(String productName, int quantity) 
     {
@@ -40,7 +43,6 @@ public class ShoppingCart
                 inventoryProduct.getPrice(),
                 quantity
             );
-            
             items.add(cartProduct);
             
             // Update inventory
@@ -50,6 +52,7 @@ public class ShoppingCart
     
     /**
      * Removes an item from the cart
+     * @param productName The name of the product to remove
      */
     public void removeItem(String productName) 
     {
@@ -67,15 +70,14 @@ public class ShoppingCart
         {
             // Return quantity to inventory
             SalableProduct inventoryProduct = inventory.getProduct(productName);
-            inventory.updateQuantity(productName, 
-                inventoryProduct.getQuantity() + toRemove.getQuantity());
-            
+            inventory.updateQuantity(productName, inventoryProduct.getQuantity() + toRemove.getQuantity());
             items.remove(toRemove);
         }
     }
     
     /**
      * Gets all items in the cart
+     * @return A list of all items in the cart
      */
     public List<SalableProduct> getItems() 
     {
@@ -84,6 +86,7 @@ public class ShoppingCart
     
     /**
      * Calculates the total price of the cart
+     * @return The total price of all items in the cart
      */
     public double getTotalPrice() 
     {
@@ -105,6 +108,7 @@ public class ShoppingCart
     
     /**
      * Gets the number of items in the cart
+     * @return The number of items in the cart
      */
     public int getItemCount() 
     {

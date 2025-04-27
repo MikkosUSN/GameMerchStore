@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/17/2025
-// This is my own work
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -9,9 +9,8 @@ package com.gamestore.model;
  * Represents a product that can be sold in the game merchandise store.
  * This is the base class for all salable items in the store inventory,
  * providing common attributes and behaviors for all products.
-
  */
-public class SalableProduct 
+public class SalableProduct implements Comparable<SalableProduct> 
 {
     /** The name of the product */
     private String name;
@@ -119,6 +118,18 @@ public class SalableProduct
     public void setQuantity(int quantity) 
     {
         this.quantity = quantity;
+    }
+    
+    /**
+     * Compares this product with another product based on name (case-insensitive).
+     * @param other The other product to compare with
+     * @return A negative integer, zero, or a positive integer as this product's name
+     * is less than, equal to, or greater than the other product's name
+     */
+    @Override
+    public int compareTo(SalableProduct other) 
+    {
+        return this.name.compareToIgnoreCase(other.getName());
     }
     
     /**

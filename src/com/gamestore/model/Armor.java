@@ -1,7 +1,7 @@
 // Mikkos Thomas
 // CST-239
-// 04/17/2025
-// This is my own work, with help using website: https://halo.gcu.edu/courses/CST-239-O500-20250407/announcements
+// 04/23/2025
+// I used my own work
 
 package com.gamestore.model;
 
@@ -54,6 +54,10 @@ public class Armor extends SalableProduct
         this.defense = defense;
     }
     
+    /**
+     * Returns a string representation of the armor.
+     * @return A formatted string with armor details
+     */
     @Override
     public String toString() 
     {
