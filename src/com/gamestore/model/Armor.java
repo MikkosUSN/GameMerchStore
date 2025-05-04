@@ -1,6 +1,6 @@
 // Mikkos Thomas
-// CST-239
-// 04/23/2025
+// CST-239 Milestone 4
+// 04/30/2025
 // I used my own work
 
 package com.gamestore.model;

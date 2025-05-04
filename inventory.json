@@ -1,0 +1,42 @@
+[
+  {
+    "type": "Weapon",
+    "name": "Exotic Pulse Rifle",
+    "description": "A high-tech rifle with energy ammunition",
+    "price": 299.99,
+    "quantity": 5,
+    "damage": 45
+  },
+  {
+    "type": "Weapon",
+    "name": "Tactical Vector SMG",
+    "description": "Compact submachine gun with high rate of fire",
+    "price": 199.50,
+    "quantity": 8,
+    "damage": 30
+  },
+  {
+    "type": "Armor",
+    "name": "Division Agent Vest",
+    "description": "Bulletproof tactical vest with multiple pouches",
+    "price": 175.75,
+    "quantity": 10,
+    "defense": 35
+  },
+  {
+    "type": "Armor",
+    "name": "Power Armor Frame",
+    "description": "Exoskeleton frame that enhances strength and protection",
+    "price": 450.00,
+    "quantity": 3,
+    "defense": 75
+  },
+  {
+    "type": "Health",
+    "name": "Stimpak",
+    "description": "Military-grade auto-injector that rapidly heals wounds",
+    "price": 45.50,
+    "quantity": 20,
+    "healAmount": 65
+  }
+]

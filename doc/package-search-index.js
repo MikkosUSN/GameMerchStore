@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gamestore.main"},{"l":"com.gamestore.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gamestore.main"},{"l":"com.gamestore.model"},{"l":"com.gamestore.util"}];updateSearchResults();

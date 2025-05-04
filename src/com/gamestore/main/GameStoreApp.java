@@ -1,10 +1,11 @@
 // Mikkos Thomas
-// CST-239
-// 04/23/2025
+// CST-239 Milestone 4
+// 04/30/2025
 // I used my own work
 
 package com.gamestore.main;
 
+import com.gamestore.model.SalableProduct;
 import com.gamestore.model.StoreFront;
 import java.util.Scanner;
 
@@ -141,52 +142,91 @@ public class GameStoreApp
     
     /**
      * Handles the process of purchasing a product.
-     * Gets the product name and quantity from the user and attempts to add it to the cart.
+     * Now uses a numbered product list to reduce typing errors.
+     * Asks for quantity only after a valid selection.
      * @param store The StoreFront object to interact with
      * @param scanner The Scanner object to read user input
      */
-    private static void handleProductPurchase(StoreFront store, Scanner scanner) 
+    private static void handleProductPurchase(StoreFront store, Scanner scanner)
     {
-        // Get product name from user
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
-        
-        // Get and validate quantity
-        System.out.print("Enter quantity: ");
-        try 
+        // Prompt user to pick a product by number from the list
+        String selectedProduct = store.getProductSelectionFromUser(scanner);
+
+        // If selection is invalid, exit early
+        if (selectedProduct == null) 
         {
-            int qty = Integer.parseInt(scanner.nextLine());
-            
-            // Ensure quantity is positive
+            System.out.println("Product name does not exist. Please check selection.");
+            return;
+        }
+
+        // Ask for quantity only after valid product is selected
+        System.out.print("Enter quantity: ");
+        try {
+            int qty = Integer.parseInt(scanner.nextLine().trim());
+
             if (qty <= 0) 
             {
                 System.out.println("Error: Quantity must be greater than zero.");
             } 
             else 
             {
-                // Attempt to add the product to the cart
-                store.purchaseProduct(name, qty);
+                store.purchaseProduct(selectedProduct, qty);
             }
         } 
         catch (NumberFormatException e) 
         {
-            System.out.println("Error: Please enter a valid number for quantity.");
+            System.out.println("Error: Please enter a valid whole number for quantity.");
         }
     }
     
     /**
      * Handles the process of canceling a purchase.
-     * Gets the product name from the user and attempts to remove it from the cart.
+     * Now uses a numbered menu instead of requiring manual typing,
+     * which reduces errors and improves user experience.
      * @param store The StoreFront object to interact with
      * @param scanner The Scanner object to read user input
      */
-    private static void handlePurchaseCancellation(StoreFront store, Scanner scanner) 
+    private static void handlePurchaseCancellation(StoreFront store, Scanner scanner)
     {
-        // Get product name to remove
-        System.out.print("Enter product name to remove: ");
-        String removeName = scanner.nextLine();
-        
-        // Attempt to remove the product from the cart
-        store.cancelPurchase(removeName);
+        // Get current cart items
+        java.util.List<SalableProduct> cartItems = store.getCart().getItems();
+
+        // If cart is empty, notify and return
+        if (cartItems.isEmpty()) 
+        {
+            System.out.println("Cart is empty. Nothing to cancel.");
+            return;
+        }
+
+        // Display cart items with numbers
+        System.out.println("\nItems in cart:");
+        for (int i = 0; i < cartItems.size(); i++) 
+        {
+            SalableProduct item = cartItems.get(i);
+            System.out.println((i + 1) + ") " + item.getName() + " x " + item.getQuantity());
+        }
+
+        System.out.print("Pick a number to remove (1 - " + cartItems.size() + "): ");
+
+        try 
+        {
+            int choice = Integer.parseInt(scanner.nextLine().trim());
+
+            if (choice >= 1 && choice <= cartItems.size()) 
+            {
+                // Get selected product name and remove it
+                String removeName = cartItems.get(choice - 1).getName();
+                store.cancelPurchase(removeName);
+            } 
+            else 
+            {
+                System.out.println("Invalid selection. Please enter a number between 1 and " + cartItems.size());
+            }
+        } 
+        catch (NumberFormatException e) 
+        {
+            System.out.println("Invalid input. Please enter a number.");
+        }
     }
 }
+

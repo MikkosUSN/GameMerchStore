@@ -1,145 +1,132 @@
 // Mikkos Thomas
-// CST-239
-// 04/23/2025
-// I used my own work
+// CST-239 Milestone 4
+// 04/30/2025
+// I used my own work with reference from website: https://www.baeldung.com/jackson-annotations
 
 package com.gamestore.model;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
  * Represents a product that can be sold in the game merchandise store.
  * This is the base class for all salable items in the store inventory,
  * providing common attributes and behaviors for all products.
  */
-public class SalableProduct implements Comparable<SalableProduct> 
+
+// Added Jackson annotations for polymorphic deserialization
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "type"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Weapon.class, name = "Weapon"),
+    @JsonSubTypes.Type(value = Armor.class, name = "Armor"),
+    @JsonSubTypes.Type(value = Health.class, name = "Health")
+})
+public class SalableProduct implements Comparable<SalableProduct>
 {
     /** The name of the product */
     private String name;
-    
+
     /** The description of the product */
     private String description;
-    
+
     /** The price of the product in dollars */
     private double price;
-    
+
     /** The quantity of the product available in inventory */
     private int quantity;
-    
+
     /**
      * Default constructor.
      * Creates an empty product with no initialized values.
      */
-    public SalableProduct() 
-    {
-        // Default constructor with no initialization
-    }
-    
+    public SalableProduct() {}
+
     /**
-     * Constructs a new SalableProduct with specified attributes.
+     * Overloaded constructor.
+     * Initializes a salable product with specified values.
      * @param name The name of the product
-     * @param description The description of the product
-     * @param price The price of the product in dollars
-     * @param quantity The quantity available in inventory
+     * @param description The product's description
+     * @param price The price in dollars
+     * @param quantity The available quantity
      */
-    public SalableProduct(String name, String description, double price, int quantity) 
+    public SalableProduct(String name, String description, double price, int quantity)
     {
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
     }
-    
+
     /**
-     * Gets the name of the product.
-     * @return The product name
+     * Gets the product name.
+     * @return the name of the product
      */
-    public String getName() 
-    {
-        return name;
-    }
-    
+    public String getName() { return name; }
+
     /**
-     * Sets the name of the product.
-     * @param name The product name to set
+     * Sets the product name.
+     * @param name the new name of the product
      */
-    public void setName(String name) 
-    {
-        this.name = name;
-    }
-    
+    public void setName(String name) { this.name = name; }
+
     /**
-     * Gets the description of the product.
-     * @return The product description
+     * Gets the product description.
+     * @return the description of the product
      */
-    public String getDescription() 
-    {
-        return description;
-    }
-    
+    public String getDescription() { return description; }
+
     /**
-     * Sets the description of the product.
-     * @param description The product description to set
+     * Sets the product description.
+     * @param description the new description
      */
-    public void setDescription(String description) 
-    {
-        this.description = description;
-    }
-    
+    public void setDescription(String description) { this.description = description; }
+
     /**
-     * Gets the price of the product.
-     * @return The product price in dollars
+     * Gets the product price.
+     * @return the price of the product
      */
-    public double getPrice() 
-    {
-        return price;
-    }
-    
+    public double getPrice() { return price; }
+
     /**
-     * Sets the price of the product.
-     * @param price The product price to set in dollars
+     * Sets the product price.
+     * @param price the new price
      */
-    public void setPrice(double price) 
-    {
-        this.price = price;
-    }
-    
+    public void setPrice(double price) { this.price = price; }
+
     /**
-     * Gets the quantity of the product available in inventory.
-     * @return The available quantity
+     * Gets the product quantity.
+     * @return the available quantity
      */
-    public int getQuantity() 
-    {
-        return quantity;
-    }
-    
+    public int getQuantity() { return quantity; }
+
     /**
-     * Sets the quantity of the product available in inventory.
-     * @param quantity The available quantity to set
+     * Sets the product quantity.
+     * @param quantity the new quantity
      */
-    public void setQuantity(int quantity) 
-    {
-        this.quantity = quantity;
-    }
-    
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+
     /**
-     * Compares this product with another product based on name (case-insensitive).
-     * @param other The other product to compare with
-     * @return A negative integer, zero, or a positive integer as this product's name
-     * is less than, equal to, or greater than the other product's name
+     * Compares this product with another by name (case-insensitive).
+     * @param other the other product to compare
+     * @return negative if less, positive if greater, 0 if equal
      */
     @Override
-    public int compareTo(SalableProduct other) 
+    public int compareTo(SalableProduct other)
     {
         return this.name.compareToIgnoreCase(other.getName());
     }
-    
+
     /**
-     * Returns a string representation of the product.
-     * Includes the name, description, price (formatted to 2 decimal places),
-     * and available quantity.
-     * @return A formatted string with product details
+     * Returns a string representation of the product, including
+     * name, description, price, and quantity.
+     * @return formatted string with product details
      */
     @Override
-    public String toString() 
+    public String toString()
     {
         return "Name: " + name +
                "\nDescription: " + description +

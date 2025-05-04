@@ -1,72 +1,110 @@
 // Mikkos Thomas
-// CST-239
-// 04/23/2025
+// CST-239 Milestone 4
+// 04/30/2025
 // I used my own work
 
 package com.gamestore.model;
 
+import com.gamestore.util.FileService;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Manages the inventory of products in the store.
+ * Manages the inventory of salable products in the store.
+ * Supports adding, retrieving, updating, and persisting inventory data.
  */
-public class InventoryManager 
+public class InventoryManager
 {
+    /** A list holding all products currently in inventory */
     private List<SalableProduct> products;
-    
+
     /**
-     * Constructs a new InventoryManager
+     * Constructor initializes an empty product list.
      */
-    public InventoryManager() 
+    public InventoryManager()
     {
         this.products = new ArrayList<>();
     }
-    
+
     /**
-     * Adds a product to the inventory
-     * @param product The product to add to inventory
+     * Loads the product inventory from a JSON file using FileService.
+     * @param filePath the path to the JSON file to read from
      */
-    public void addProduct(SalableProduct product) 
+    public void loadFromFile(String filePath)
+    {
+        try
+        {
+            this.products = FileService.loadInventory(filePath);
+            System.out.println("Inventory loaded from JSON.");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not load inventory from file: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Saves the current inventory list to a JSON file using FileService.
+     * @param filePath the path to the JSON file to write to
+     */
+    public void saveToFile(String filePath)
+    {
+        try
+        {
+            FileService.saveInventory(this.products, filePath);
+            System.out.println("Inventory saved to JSON.");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not save inventory to file: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Adds a new product to the inventory list.
+     * @param product the product to add
+     */
+    public void addProduct(SalableProduct product)
     {
         products.add(product);
     }
-    
+
     /**
-     * Gets all products in the inventory
-     * @return A list of all products in inventory
+     * Retrieves all products currently in the inventory.
+     * @return a list of all salable products
      */
-    public List<SalableProduct> getAllProducts() 
+    public List<SalableProduct> getAllProducts()
     {
         return products;
     }
-    
+
     /**
-     * Gets a product by name
-     * @param name The name of the product to find
-     * @return The product if found, null otherwise
+     * Retrieves a product by name using case-insensitive matching.
+     * @param name the name of the product to retrieve
+     * @return the product if found, or null if not found
      */
-    public SalableProduct getProduct(String name) 
+    public SalableProduct getProduct(String name)
     {
-        for (SalableProduct product : products) 
+        for (SalableProduct product : products)
         {
-            if (product.getName().equals(name)) 
+            if (product.getName().equalsIgnoreCase(name))  // Case-insensitive match
             {
                 return product;
             }
         }
         return null;
     }
-    
+
     /**
-     * Updates the quantity of a product
-     * @param name The name of the product to update
-     * @param quantity The new quantity to set
+     * Updates the quantity of a product in the inventory by name.
+     * @param name the name of the product
+     * @param quantity the new quantity to set
      */
-    public void updateQuantity(String name, int quantity) 
+    public void updateQuantity(String name, int quantity)
     {
         SalableProduct product = getProduct(name);
-        if (product != null) 
+        if (product != null)
         {
             product.setQuantity(quantity);
         }
