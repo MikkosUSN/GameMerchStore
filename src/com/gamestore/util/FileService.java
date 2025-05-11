@@ -1,6 +1,6 @@
 // Mikkos Thomas
-// CST-239 Milestone 4
-// 04/30/2025
+// CST-239 Milestone 5
+// 5/5/2025
 // I used my own work with help from website: https://jenkov.com/tutorials/java-json/jackson-objectmapper.html
 
 package com.gamestore.util;
@@ -18,10 +18,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
  * It provides methods to load and save a list of SalableProduct
  * objects to and from a JSON file using the Jackson library.
  */
-public class FileService 
-{
-    
-    /** 
+public class FileService {
+    /**
      * Jackson ObjectMapper used for JSON serialization and deserialization.
      */
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -32,8 +30,7 @@ public class FileService
      * @return A List of SalableProduct objects parsed from the file
      * @throws IOException If the file is not found or contains invalid JSON
      */
-    public static List<SalableProduct> loadInventory(String filePath) throws IOException 
-    {
+    public static List<SalableProduct> loadInventory(String filePath) throws IOException {
         return mapper.readValue(new File(filePath), new TypeReference<List<SalableProduct>>() {});
     }
 
@@ -43,8 +40,7 @@ public class FileService
      * @param filePath The path to the JSON file to save to
      * @throws IOException If an error occurs during file writing
      */
-    public static void saveInventory(List<SalableProduct> products, String filePath) throws IOException 
-    {
+    public static void saveInventory(List<SalableProduct> products, String filePath) throws IOException {
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), products);
     }
 }

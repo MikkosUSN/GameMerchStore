@@ -4,39 +4,299 @@
     "name": "Exotic Pulse Rifle",
     "description": "A high-tech rifle with energy ammunition",
     "price": 299.99,
-    "quantity": 5,
-    "damage": 45
+    "quantity": 10,
+    "damage": 45,
+    "rateOfFire": 650,
+    "range": 85
   },
   {
     "type": "Weapon",
     "name": "Tactical Vector SMG",
     "description": "Compact submachine gun with high rate of fire",
     "price": 199.50,
+    "quantity": 14,
+    "damage": 30,
+    "rateOfFire": 1200,
+    "range": 40
+  },
+  {
+    "type": "Weapon",
+    "name": "Plasma Cannon",
+    "description": "Heavy weapon that fires superheated plasma bolts",
+    "price": 599.99,
     "quantity": 8,
-    "damage": 30
+    "damage": 120,
+    "rateOfFire": 120,
+    "range": 70
+  },
+  {
+    "type": "Weapon",
+    "name": "Precision Sniper Rifle",
+    "description": "Long-range rifle with thermal scope and stabilizer",
+    "price": 450.00,
+    "quantity": 10,
+    "damage": 95,
+    "rateOfFire": 60,
+    "range": 150
+  },
+  {
+    "type": "Weapon",
+    "name": "Quantum Blade",
+    "description": "Energy sword that can cut through almost any material",
+    "price": 375.50,
+    "quantity": 8,
+    "damage": 85,
+    "rateOfFire": 200,
+    "range": 5
+  },
+  {
+    "type": "Weapon",
+    "name": "Gauss Pistol",
+    "description": "Sidearm that uses electromagnetic coils to fire projectiles",
+    "price": 225.75,
+    "quantity": 12,
+    "damage": 40,
+    "rateOfFire": 300,
+    "range": 35
+  },
+  {
+    "type": "Weapon",
+    "name": "Flamethrower X7",
+    "description": "Advanced incendiary weapon with focused flame jets",
+    "price": 350.00,
+    "quantity": 8,
+    "damage": 65,
+    "rateOfFire": 500,
+    "range": 25
+  },
+  {
+    "type": "Weapon",
+    "name": "Railgun Prototype",
+    "description": "Experimental weapon that fires hypervelocity projectiles",
+    "price": 750.00,
+    "quantity": 6,
+    "damage": 150,
+    "rateOfFire": 30,
+    "range": 120
+  },
+  {
+    "type": "Weapon",
+    "name": "Shock Baton",
+    "description": "Melee weapon that delivers powerful electrical charges",
+    "price": 175.25,
+    "quantity": 12,
+    "damage": 35,
+    "rateOfFire": 250,
+    "range": 3
+  },
+  {
+    "type": "Weapon",
+    "name": "Gravity Hammer",
+    "description": "Massive two-handed weapon that creates localized gravity distortions",
+    "price": 525.00,
+    "quantity": 8,
+    "damage": 110,
+    "rateOfFire": 45,
+    "range": 8
   },
   {
     "type": "Armor",
     "name": "Division Agent Vest",
     "description": "Bulletproof tactical vest with multiple pouches",
     "price": 175.75,
-    "quantity": 10,
-    "defense": 35
+    "quantity": 16,
+    "defense": 35,
+    "mobility": 85,
+    "durability": 70
   },
   {
     "type": "Armor",
     "name": "Power Armor Frame",
     "description": "Exoskeleton frame that enhances strength and protection",
     "price": 450.00,
-    "quantity": 3,
-    "defense": 75
+    "quantity": 8,
+    "defense": 75,
+    "mobility": 50,
+    "durability": 90
+  },
+  {
+    "type": "Armor",
+    "name": "Stealth Suit Mk III",
+    "description": "Advanced suit with active camouflage capabilities",
+    "price": 525.50,
+    "quantity": 8,
+    "defense": 40,
+    "mobility": 95,
+    "durability": 65
+  },
+  {
+    "type": "Armor",
+    "name": "Quantum Shield Generator",
+    "description": "Wearable device that creates an energy shield around the user",
+    "price": 650.00,
+    "quantity": 6,
+    "defense": 90,
+    "mobility": 80,
+    "durability": 75
+  },
+  {
+    "type": "Armor",
+    "name": "Nano-Weave Combat Suit",
+    "description": "Lightweight armor with self-repairing nanotechnology",
+    "price": 575.25,
+    "quantity": 8,
+    "defense": 60,
+    "mobility": 90,
+    "durability": 85
+  },
+  {
+    "type": "Armor",
+    "name": "Juggernaut Plating",
+    "description": "Heavy-duty armor designed for maximum protection",
+    "price": 425.00,
+    "quantity": 10,
+    "defense": 95,
+    "mobility": 30,
+    "durability": 100
+  },
+  {
+    "type": "Armor",
+    "name": "Hazmat Containment Suit",
+    "description": "Full-body protection against biological and chemical threats",
+    "price": 350.75,
+    "quantity": 10,
+    "defense": 50,
+    "mobility": 60,
+    "durability": 80
+  },
+  {
+    "type": "Armor",
+    "name": "Thermal Regulation Gear",
+    "description": "Armor that maintains optimal body temperature in extreme environments",
+    "price": 300.50,
+    "quantity": 12,
+    "defense": 45,
+    "mobility": 75,
+    "durability": 70
+  },
+  {
+    "type": "Armor",
+    "name": "Reactive Combat Armor",
+    "description": "Armor that hardens on impact to absorb kinetic energy",
+    "price": 475.25,
+    "quantity": 8,
+    "defense": 80,
+    "mobility": 65,
+    "durability": 85
+  },
+  {
+    "type": "Armor",
+    "name": "Infiltrator Mesh",
+    "description": "Ultra-light armor designed for covert operations",
+    "price": 375.00,
+    "quantity": 10,
+    "defense": 30,
+    "mobility": 100,
+    "durability": 55
   },
   {
     "type": "Health",
     "name": "Stimpak",
     "description": "Military-grade auto-injector that rapidly heals wounds",
     "price": 45.50,
+    "quantity": 26,
+    "healAmount": 65,
+    "duration": 5,
+    "sideEffects": "None"
+  },
+  {
+    "type": "Health",
+    "name": "Regeneration Serum",
+    "description": "Advanced formula that accelerates natural healing processes",
+    "price": 85.75,
+    "quantity": 16,
+    "healAmount": 120,
+    "duration": 15,
+    "sideEffects": "Mild nausea"
+  },
+  {
+    "type": "Health",
+    "name": "Nano-Med Kit",
+    "description": "Portable medical unit with nanobots that repair tissue damage",
+    "price": 150.00,
+    "quantity": 10,
+    "healAmount": 200,
+    "duration": 10,
+    "sideEffects": "None"
+  },
+  {
+    "type": "Health",
+    "name": "Combat Stimulant",
+    "description": "Temporary boost to combat effectiveness and minor healing",
+    "price": 65.25,
     "quantity": 20,
-    "healAmount": 65
+    "healAmount": 40,
+    "duration": 30,
+    "sideEffects": "Crash after use"
+  },
+  {
+    "type": "Health",
+    "name": "Trauma Override Implant",
+    "description": "Single-use emergency device that prevents fatal injury",
+    "price": 250.00,
+    "quantity": 8,
+    "healAmount": 350,
+    "duration": 1,
+    "sideEffects": "Temporary weakness"
+  },
+  {
+    "type": "Health",
+    "name": "Radiation Purge",
+    "description": "Removes radiation and heals radiation-induced damage",
+    "price": 95.50,
+    "quantity": 14,
+    "healAmount": 80,
+    "duration": 20,
+    "sideEffects": "Drowsiness"
+  },
+  {
+    "type": "Health",
+    "name": "Biofoam Canister",
+    "description": "Expandable foam that seals wounds and delivers antibiotics",
+    "price": 75.25,
+    "quantity": 18,
+    "healAmount": 90,
+    "duration": 8,
+    "sideEffects": "Skin irritation"
+  },
+  {
+    "type": "Health",
+    "name": "Adrenaline Shot",
+    "description": "Emergency stimulant that provides immediate healing and energy",
+    "price": 55.00,
+    "quantity": 24,
+    "healAmount": 50,
+    "duration": 3,
+    "sideEffects": "Increased heart rate"
+  },
+  {
+    "type": "Health",
+    "name": "Cellular Reconstructor",
+    "description": "High-tech device that rebuilds damaged cells",
+    "price": 175.75,
+    "quantity": 10,
+    "healAmount": 250,
+    "duration": 25,
+    "sideEffects": "None"
+  },
+  {
+    "type": "Health",
+    "name": "Medi-Gel Advanced",
+    "description": "All-purpose healing compound with pain relief",
+    "price": 125.50,
+    "quantity": 12,
+    "healAmount": 150,
+    "duration": 12,
+    "sideEffects": "Temporary numbness"
   }
 ]
