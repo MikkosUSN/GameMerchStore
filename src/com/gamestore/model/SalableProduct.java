@@ -1,7 +1,10 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work with reference from website: https://www.baeldung.com/jackson-annotations
+/**
+ * Mikkos Thomas
+ * CST-239 Milestone 6
+ * 5/15/2025
+ * I used my own work with reference from website: https://www.baeldung.com/jackson-annotations
+ */
+
 package com.gamestore.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;

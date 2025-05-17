@@ -1,7 +1,9 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work
+/**
+ * Mikkos Thomas
+ * CST-239 Milestone 6
+ * 5/15/2025
+ * I used my own work
+ */
 
 package com.gamestore.model;
 
@@ -119,5 +121,14 @@ public class InventoryManager {
                 ? Comparator.comparingDouble(SalableProduct::getPrice)
                 : Comparator.comparingDouble(SalableProduct::getPrice).reversed())
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * Replaces the current inventory with a new list of products.
+     * This method is used by the AdminService when receiving updated JSON.
+     * @param newList the list of products to replace the current inventory
+     */
+    public void setInventory(List<SalableProduct> newList) {
+        this.products = newList;
     }
 }

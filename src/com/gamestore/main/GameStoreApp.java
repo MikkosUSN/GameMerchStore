@@ -1,11 +1,16 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work, Sorting functionality feature added
+/**
+ *  Mikkos Thomas
+ *  CST-239 Milestone 6
+ *  5/15/2025
+ *  I used my own work, Sorting functionality and AdminService background feature added
+ */
+
 package com.gamestore.main;
 
 import com.gamestore.model.SalableProduct;
 import com.gamestore.model.StoreFront;
+import com.gamestore.service.AdminService; // Import AdminService
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,9 +20,10 @@ import java.util.Scanner;
  * user interaction through a console-based menu system. 
  * The application provides a text-based interface for browsing products,
  * making purchases, managing a shopping cart, and checking out.
- * Adds product sorting capabilities.
+ * Adds product sorting and admin command background service capabilities.
  */
 public class GameStoreApp {
+
     /**
      * The main method that starts the application.
      * It initializes the store, displays a welcome message, and
@@ -28,24 +34,29 @@ public class GameStoreApp {
         // Initialize the store and load inventory
         StoreFront store = new StoreFront();
         store.initialize(); // Load or create inventory
-        
+
+        // Milestone 6: Start AdminService in a background thread to receive admin commands
+        Thread adminThread = new Thread(new AdminService(store.getInventoryManager()));
+        adminThread.setDaemon(true); // Run in background and terminate with main app
+        adminThread.start();
+
         // Create scanner for user input
         Scanner scanner = new Scanner(System.in);
-        
+
         // Display welcome banner
         System.out.println("\n Welcome to " + store.getStoreName() + "!");
         System.out.println(" Gear up for your next mission, Slayer! \n");
-        
+
         // Control variable for the main application loop
         boolean running = true;
-        
+
         // Main application loop
         while (running) {
             displayMainMenu(store.getStoreName());
             int choice = getUserChoice(scanner);
             running = processUserChoice(choice, store, scanner);
         }
-        
+
         // Close the scanner to prevent resource leaks
         scanner.close();
     }
@@ -60,7 +71,7 @@ public class GameStoreApp {
         System.out.println("2. Purchase Product");
         System.out.println("3. Cancel Purchase");
         System.out.println("4. View Cart");
-        System.out.println("5. Sort Products"); // New sorting option
+        System.out.println("5. Sort Products");
         System.out.println("6. Checkout");
         System.out.println("7. Exit");
         System.out.print("Enter your choice: ");
@@ -106,7 +117,7 @@ public class GameStoreApp {
                 store.displayCart(); 
                 return true;
             case 5:
-                // Sort products - new feature 
+                // Sort products - ascending or descending by name or price
                 handleSortMenu(store, scanner); 
                 return true;
             case 6:

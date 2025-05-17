@@ -1,7 +1,9 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work
+/**
+ * Mikkos Thomas
+ * CST-239 Milestone 6
+ * 5/15/2025
+ * I used my own work
+ */
 
 package com.gamestore.model;
 
@@ -251,5 +253,14 @@ public class StoreFront {
      */
     public ShoppingCart getCart() {
         return cart;
+    }
+
+    /**
+     * Provides access to the internal InventoryManager instance.
+     * Used for AdminService background communication with the StoreFront.
+     * @return the inventory manager object used by the store
+     */
+    public InventoryManager getInventoryManager() {
+        return this.inventory;
     }
 }

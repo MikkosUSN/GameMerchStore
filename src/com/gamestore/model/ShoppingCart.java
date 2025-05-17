@@ -1,7 +1,10 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work
+/**
+ * Mikkos Thomas
+ * CST-239 Milestone 6
+ * 5/15/2025
+ * I used my own work
+ */
+
 package com.gamestore.model;
 
 import java.util.ArrayList;

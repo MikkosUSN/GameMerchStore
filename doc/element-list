@@ -1,3 +1,5 @@
+com.gamestore.admin
 com.gamestore.main
 com.gamestore.model
+com.gamestore.service
 com.gamestore.util

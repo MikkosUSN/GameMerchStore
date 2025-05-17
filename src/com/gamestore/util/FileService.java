@@ -1,7 +1,9 @@
-// Mikkos Thomas
-// CST-239 Milestone 5
-// 5/5/2025
-// I used my own work with help from website: https://jenkov.com/tutorials/java-json/jackson-objectmapper.html
+/**
+ * Mikkos Thomas
+ * CST-239 Milestone 6
+ * 5/15/2025
+ * I used my own work with help from website: https://jenkov.com/tutorials/java-json/jackson-objectmapper.html
+ */ 
 
 package com.gamestore.util;
 
