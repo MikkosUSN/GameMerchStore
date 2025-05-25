@@ -7,6 +7,8 @@
 
 package com.gamestore.model;
 
+import java.util.Scanner;
+
 /**
  * Represents the main interface for the game merchandise store.
  * Manages store inventory, shopping cart, and user interaction logic.
@@ -120,8 +122,9 @@ public class StoreFront {
                 return null;
             }
         } catch (NumberFormatException e) {
-            // Handle non-numeric input
             System.out.println("Invalid input. Please enter a number.");
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
             return null;
         }
     }
@@ -132,25 +135,31 @@ public class StoreFront {
      * @param productName the name of the product to purchase
      * @param quantity the quantity to purchase
      */
-    public void purchaseProduct(String productName, int quantity) {
+    public void purchaseProduct(String productName, int quantity, Scanner scanner) {
         // Look up the product in inventory
         SalableProduct product = inventory.getProduct(productName);
         
         // Check if the product exists in the inventory
         if (product == null) {
             System.out.println("Error: '" + productName + "' not found in inventory.");
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
             return;
         }
         
         // Check if the requested quantity is a positive number
         if (quantity <= 0) {
             System.out.println("Error: Quantity must be greater than zero.");
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
             return;
         }
         
         // Check if the inventory has enough quantity to fulfill the request
         if (product.getQuantity() < quantity) {
             System.out.println("Error: Only " + product.getQuantity() + " unit(s) of '" + productName + "' available.");
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
             return;
         }
         

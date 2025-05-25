@@ -87,7 +87,9 @@ public class GameStoreApp {
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("Error: Please enter a number.");
-            return 0; // Return 0 to indicate invalid input
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
+            return 0;
         }
     }
 
@@ -131,7 +133,9 @@ public class GameStoreApp {
                 return false;
             default:
                 // Handle invalid menu choices
-                System.out.println("Error: Invalid option. Please try again.");
+            	System.out.println("Error: Invalid option. Please try again.");
+                System.out.println("Click ENTER to continue...");
+                scanner.nextLine();
                 return true;
         }
     }
@@ -171,7 +175,9 @@ public class GameStoreApp {
                 sorted = store.getInventory().getProductsSortedByPrice(false); 
                 break;
             default:
-                System.out.println("Invalid choice."); 
+            	System.out.println("Invalid choice.");
+                System.out.println("Click ENTER to continue...");
+                scanner.nextLine();
                 return;
         }
         
@@ -205,13 +211,17 @@ public class GameStoreApp {
         try {
             int qty = Integer.parseInt(scanner.nextLine().trim());
             if (qty <= 0) {
-                System.out.println("Error: Quantity must be greater than zero.");
+            	System.out.println("Error: Quantity must be greater than zero.");
+                System.out.println("Click ENTER to continue...");
+                scanner.nextLine();
             } else {
                 // Attempt to add the product to the cart
-                store.purchaseProduct(selectedProduct, qty);
+                store.purchaseProduct(selectedProduct, qty, scanner);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Error: Please enter a valid whole number for quantity.");
+        	System.out.println("Error: Please enter a valid whole number for quantity.");
+            System.out.println("Click ENTER to continue...");
+            scanner.nextLine();
         }
     }
 
@@ -305,7 +315,9 @@ public class GameStoreApp {
                         
                     } catch (NumberFormatException e) {
                         // Handle the case where the user enters a non-numeric value for quantity
-                        System.out.println("Invalid input. Please enter a number.");
+                    	System.out.println("Invalid input. Please enter a number.");
+                        System.out.println("Click ENTER to continue...");
+                        scanner.nextLine();
                     }
                 } else {
                     // Handle the case where the user's selection is out of range
@@ -314,7 +326,9 @@ public class GameStoreApp {
                 }
             } catch (NumberFormatException e) {
                 // Handle the case where the user enters a non-numeric value for item selection
-                System.out.println("Invalid input. Please enter a number.");
+            	System.out.println("Invalid input. Please enter a number.");
+                System.out.println("Click ENTER to continue...");
+                scanner.nextLine();
             }
         }
     }

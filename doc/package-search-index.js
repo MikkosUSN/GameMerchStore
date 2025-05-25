@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gamestore.admin"},{"l":"com.gamestore.main"},{"l":"com.gamestore.model"},{"l":"com.gamestore.service"},{"l":"com.gamestore.util"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gamestore.admin"},{"l":"com.gamestore.main"},{"l":"com.gamestore.model"},{"l":"com.gamestore.service"},{"l":"com.gamestore.test"},{"l":"com.gamestore.util"}];updateSearchResults();

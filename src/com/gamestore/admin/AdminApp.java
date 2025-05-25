@@ -36,9 +36,11 @@ public class AdminApp {
 
             String command = scanner.nextLine().trim().toUpperCase();
 
-            // Ensure valid input
+         // Ensure valid input
             if (!command.equals("R") && !command.equals("U")) {
                 System.out.println("Invalid command.");
+                System.out.println("Click ENTER to continue...");
+                scanner.nextLine(); // Wait for user to acknowledge the error
                 return;
             }
 
